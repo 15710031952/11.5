@@ -19,25 +19,19 @@ const routes = [
   {
     path: '/',
     name: 'home',
+    redirect:'/home/one',
     component: Home,
     children:[
       {
         path:'/home/one',
         name:'one',
+        redirect:'/home/one/attention',
         component:One,
         children:[
           {
-            path:'/home/one/list',
-            name:'list',
+            path:'/home/one/:type',
+            // name:'attention',
             component:List
-          },{
-            path:'/home/one/tui',
-            name:'tui',
-            component:Tui
-          },{
-            path:'/home/one/hot',
-            name:'hot',
-            component:Hot
           }
         ]
       },{

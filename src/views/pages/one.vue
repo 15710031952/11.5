@@ -3,9 +3,9 @@
     <!-- 首页 -->
     <div class="One">
         <div class="top">
-            <span v-for="(item,index) in numlist" :key="index" @click="btntab(index)"> 
+            <router-link v-for="(item,index) in numlist" :key="index" tag='span' :to="item.path"> 
                 {{item.name}}
-            </span>
+            </router-link>
         </div>
         <div class="center">
             <router-view />
@@ -19,16 +19,13 @@ export default {
   data () {
     return {
         numlist:[//三个路由 三个组件
-            {name:'关注',path:'/home/one/list'},
-            {name:'推荐',path:'/home/one/tui'},
+            {name:'关注',path:'/home/one/attention'},
+            {name:'推荐',path:'/home/one/recommend'},
             {name:'热榜',path:'/home/one/hot'}
         ]
     };
   },
   methods:{
-      btntab(key){//点击跳转
-          this.$router.push(this.numlist[key].path)
-      }
   }
 }
 
